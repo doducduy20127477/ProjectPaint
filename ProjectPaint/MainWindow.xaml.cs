@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace ProjectPaint
         Dictionary<int, List<Image>> images = new Dictionary<int, List<Image>>();
         List<IShape> redos = new List<IShape>();
         IShape preview;
+        bool isZooming;
         public MainWindow()
         {
             InitializeComponent();
@@ -276,6 +278,53 @@ namespace ProjectPaint
         private void Pen_Click(object sender, RoutedEventArgs e)
         {
             currentShapeType = ShapeType.Point2D;
+        }
+
+        private void ZoomSwitch_Checked(object sender, RoutedEventArgs e)
+        {
+            isZooming = true;
+        }
+
+        private void ZoomSwitch_Unchecked(object sender, RoutedEventArgs e)
+        {
+            isZooming = false;
+        }
+
+        public float Zoomfactor { get; set; } = 1.1f;
+        private readonly MatrixTransform _transform = new MatrixTransform();
+
+        private void DrawingCanvas_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if(isZooming)
+            {
+
+                float scaleFactor = Zoomfactor;
+                if (e.Delta < 0)
+                {
+                    scaleFactor = 1f / scaleFactor;
+                }
+
+                Point mousePostion = e.GetPosition(this);
+
+                Matrix scaleMatrix = _transform.Matrix;
+                scaleMatrix.ScaleAt(scaleFactor, scaleFactor, mousePostion.X, mousePostion.Y);
+                _transform.Matrix = scaleMatrix;
+
+                foreach (UIElement child in this.DrawingCanvas.Children)
+                {
+                    double x = Canvas.GetLeft(child);
+                    double y = Canvas.GetTop(child);
+
+                    double sx = x * scaleFactor;
+                    double sy = y * scaleFactor;
+
+                    Canvas.SetLeft(child, sx);
+                    Canvas.SetTop(child, sy);
+
+                    child.RenderTransform = _transform;
+                }
+            }
+            
         }
     }
 }
