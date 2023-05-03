@@ -11,7 +11,6 @@
 
 ## Mã nguồn:
 
--   **Github: https://github.com/doducduy20127477/ProjectPaint**
 -   **Drive: https://drive.google.com/drive/folders/1Q8gdB_KXPnCiG0tl2Bl4uSE58JyVaRFV?usp=sharing**
 
 ## Các chức năng đã làm:
@@ -33,7 +32,7 @@
 
 ## Link video demo:
 
-**https://youtu.be/D9-3FC_e_r8**
+**https://youtu.be/o-50JkO7-VY**
 
 > Vì lý do giới hạn thời gian của một video, nên tụi em không thể demo hết được các chức năng như đã nêu trên.
 
