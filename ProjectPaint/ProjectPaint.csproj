@@ -10,4 +10,16 @@
     <ProjectReference Include="..\GraphicsLibrary\GraphicsLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Ellipse2D">
+      <HintPath>..\dlls\Ellipse2D.dll</HintPath>
+    </Reference>
+    <Reference Include="Line2D">
+      <HintPath>..\dlls\Line2D.dll</HintPath>
+    </Reference>
+    <Reference Include="Rectangle2D">
+      <HintPath>..\dlls\Rectangle2D.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
