@@ -17,11 +17,11 @@
 
 -   Các chức năng cơ sở (đầy đủ) 7 điểm
 -   Các chức năng gợi ý nâng cao 3 điểm
-    [x] Zooming
-    [x] Undo / Redo
-    [x] Add nhiều hình ảnh
-    [x] Cho phép người dùng thay đổi màu sắc, độ dày của hình, kiểu nét (dấu gạch ngang - dash style)
-    [x] Shift mode cho Line, Rectangle, Ellipse để vẽ các hình đối xứng (Đường thẳng dọc, Hình vuông, Hình tròn), tiết kiệm công sức implement thêm các hình đối xứng đó
+    - [x] Zooming
+    - [x] Undo / Redo
+    - [x] Add nhiều hình ảnh
+    - [x] Cho phép người dùng thay đổi màu sắc, độ dày của hình, kiểu nét (dấu gạch ngang - dash style)
+    - [x] Shift mode cho Line, Rectangle, Ellipse để vẽ các hình đối xứng (Đường thẳng dọc, Hình vuông, Hình tròn), tiết kiệm công sức implement thêm các hình đối xứng đó
 
 ## Những điểm khuyến khích:
 
@@ -40,9 +40,9 @@
 
 > -   Với thư mục release: mở file **.exe** bên trong thư mục **Release**.
 > -   Liên kết thư viện:
->     > 1. Trong cửa sổ **Solution Explorer**
->     > 2. Nhấp chuột phải vào **Project**, chọn **Add**, chọn **Reference** và chọn **Browse**
->     > 3. Thêm các file .dll (Ellipse2D.dll, Line2D.dll, Rectangle2D.dll) trong thư mục **dlls** chứa ở Project
+>> 1. Trong cửa sổ **Solution Explorer**
+>> 2. Nhấp chuột phải vào **Project**, chọn **Add**, chọn **Reference** và chọn **Browse**
+>> 3. Thêm các file .dll (Ellipse2D.dll, Line2D.dll, Rectangle2D.dll) trong thư mục **dlls** chứa ở Project
 
 ## Tham khảo:
 
