@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ellipse.png" />
+    <None Remove="Images\line.png" />
+    <None Remove="Images\load.png" />
+    <None Remove="Images\rectangle.png" />
+    <None Remove="Images\save.png" />
+    <None Remove="Images\thickness.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GraphicsLibrary\GraphicsLibrary.csproj" />
   </ItemGroup>
 
@@ -20,6 +29,15 @@
     <Reference Include="Rectangle2D">
       <HintPath>..\dlls\Rectangle2D.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ellipse.png" />
+    <Resource Include="Images\line.png" />
+    <Resource Include="Images\load.png" />
+    <Resource Include="Images\rectangle.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\thickness.png" />
   </ItemGroup>
 
 </Project>

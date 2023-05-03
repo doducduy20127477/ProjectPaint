@@ -5,32 +5,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectPaint"
         mc:Ignorable="d"
-        Title="Project Paint" Height="450" Width="800" WindowState="Maximized">
+        Title="Project Paint" Height="500" Width="1500" WindowState="Maximized">
     <DockPanel LastChildFill="True">
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="50">
-            <Button x:Name="Save" Width="60px" Height="40"  Margin="10, 0" Click="Save_Click">Save</Button>
-            <Button x:Name="Load" Width="60" Height="40" Margin="10, 0, 40, 0" Click="Load_Click">Load</Button>
-            <Button x:Name="LineButton" Width="60px" Height="40" Click="LineButton_Click" Margin="10, 0">Line</Button>
-            <Button x:Name="Rectangle" Width="60px" Height="40" Click="Rectangle_Click" Margin="10, 0">Rectangle</Button>
-            <Button x:Name="Ellipse" Width="60" Height="40" Click="Ellipse_Click" Margin="10,0">Ellipse</Button>
-            <CheckBox Name="DashSwitch" Checked="DashSwitch_Checked" Unchecked="DashSwitch_Unchecked" Margin="40, 0, 10, 0" VerticalAlignment="Center">Dash Stroke</CheckBox>
-            <CheckBox Name="ZoomSwitch" Checked="ZoomSwitch_Checked" Unchecked="ZoomSwitch_Unchecked"  Margin="40, 0, 10, 0" VerticalAlignment="Center">Zooming</CheckBox>
-            <Label Content="Thickness:" VerticalAlignment="Center"></Label>
-            <ComboBox x:Name="thicknessBox" Height="20" Width="40">
-                <ComboBoxItem Content="1" IsSelected="True"></ComboBoxItem>
-                <ComboBoxItem Content="2" ></ComboBoxItem>
-                <ComboBoxItem Content="3" ></ComboBoxItem>
-                <ComboBoxItem Content="4" ></ComboBoxItem>
-                <ComboBoxItem Content="5" ></ComboBoxItem>
-            </ComboBox>
-            <Label Content="Color:" VerticalAlignment="Center"></Label>
-            <ComboBox x:Name="colorBox" Height="20" Width="60">
-                <ComboBoxItem Content="Black" IsSelected="True"></ComboBoxItem>
-                <ComboBoxItem Content="White" ></ComboBoxItem>
-                <ComboBoxItem Content="Red" ></ComboBoxItem>
-                <ComboBoxItem Content="Green" ></ComboBoxItem>
-                <ComboBoxItem Content="Blue" ></ComboBoxItem>
-            </ComboBox>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="100">
+            <Button x:Name="Save" Width="60px" Height="40"  Margin="10, 0" Click="SaveBtn_Click">
+                <Image Source="Images/save.png" RenderOptions.BitmapScalingMode="HighQuality" Width="20" Height="20"/>
+            </Button>
+            <Button x:Name="Load" Width="60" Height="40" Margin="10, 0, 40, 0" Click="LoadBtn_Click" >
+                <Image Source="Images/load.png" RenderOptions.BitmapScalingMode="HighQuality" Width="20" Height="20"/>
+            </Button>
+            <Button x:Name="LineButton" Width="60px" Height="40" Click="LineBtn_Click" Margin="10, 0">
+                <Image Source="Images/line.png" RenderOptions.BitmapScalingMode="HighQuality" Width="20" Height="20"/>
+            </Button>
+            <Button x:Name="Rectangle" Width="60px" Height="40" Click="RectangleBtn_Click" Margin="10, 0">
+                <Image Source="Images/rectangle.png" RenderOptions.BitmapScalingMode="HighQuality" Width="20" Height="20"/>
+            </Button>
+            <Button x:Name="Ellipse" Width="60" Height="40" Click="EllipseBtn_Click" Margin="10,0">
+                <Image Source="Images/ellipse.png" RenderOptions.BitmapScalingMode="HighQuality" Width="20" Height="20"/>
+            </Button>
+            <CheckBox Name="ZoomSwitch" Checked="ZoomCheckbox_Checked" Unchecked="ZoomCheckbox_Unchecked"  Margin="40, 0, 10, 0" VerticalAlignment="Center" FontWeight="Bold"
+                   FontFamily="Roboto"
+                   Foreground="#8C6E4A" Padding="1"> Zooming</CheckBox>
+            <CheckBox Name="DashSwitch" Checked="DashCheckbox_Checked" Unchecked="DashCheckbox_Unchecked" Margin="40, 0, 10, 0" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Bold"
+                   Foreground="#8C6E4A" Padding="1">Dash Stroke</CheckBox>
+
+            <GroupBox Header="Thickness" FontFamily="Roboto" FontWeight="Medium"
+                   Foreground="#8C6E4A">
+                <StackPanel Orientation="Vertical" Margin="4,4,4,0" HorizontalAlignment="Center">
+                    <Image Source="Images/thickness.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="5"
+                               Width="40" HorizontalAlignment="Center"/>
+
+                    <ComboBox x:Name="thicknessBox" Height="20" IsEditable="False" HorizontalAlignment="Center"
+                                          Margin="0,8,0,0" SelectionChanged="thicknessBox_SelectionChanged">
+                        <ComboBoxItem IsSelected="True" Content="1 pixel"/>
+                        <ComboBoxItem Content="2 pixel"/>
+                        <ComboBoxItem Content="3 pixel"/>
+                        <ComboBoxItem Content="4 pixel"/>
+                        <ComboBoxItem Content="5 pixel"/>
+                    </ComboBox>
+                </StackPanel>
+
+               
+            </GroupBox>
+
+
+
+            <GroupBox Header="Colors" Width="300" FontFamily="Roboto" FontWeight="Bold"
+                   Foreground="#8C6E4A" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+
+                    <Grid  Margin="20,5,0,2" Width="200">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+
+
+                        <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
+                                                            Width="28" Height="28"/>
+                        <Button Name="Black" Grid.Column="0" Grid.Row="0" Width="25" Height="25" 
+                                        Background="Black" Click="colorBtn_Click"></Button>
+
+
+                        <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
+                                                            Width="28" Height="28"/>
+                        <Button Name="Gray" Grid.Column="1" Grid.Row="0" Width="25" Height="25" 
+                                        Background="Gray" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="2" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
+                                                        Width="28" Height="28"/>
+                        <Button Name="Red" Grid.Column="2" Grid.Row="0" Width="25" Height="25" 
+                                        Background="Red" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="3" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
+                                                    Width="28" Height="28"/>
+                        <Button Name="Orange" Grid.Column="3" Grid.Row="0" Width="25" Height="25" 
+                                        Background="Orange" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="4" Grid.Row="0" BorderThickness="1" BorderBrush="Black"
+                                                        Width="28" Height="28"/>
+                        <Button Name="Yellow" Grid.Column="4" Grid.Row="0" Width="25" Height="25" 
+                                            Background="Yellow" Click="colorBtn_Click"></Button>
+
+
+                        <Border Grid.Column="0" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
+                                                Width="28" Height="28"/>
+                        <Button Name="Blue" Grid.Column="0" Grid.Row="1" Width="25" Height="25" 
+                                        Background="Blue" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
+                                                Width="28" Height="28"/>
+                        <Button Name="Green" Grid.Column="1" Grid.Row="1" Width="25" Height="25" 
+                                        Background="Green" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="2" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
+                                            Width="28" Height="28"/>
+                        <Button Name="Purple" Grid.Column="2" Grid.Row="1" Width="25" Height="25" 
+                                                Background="Purple" Click="colorBtn_Click">
+                        </Button>
+
+                        <Border Grid.Column="3" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
+                                        Width="28" Height="28"/>
+                        <Button Name="Pink" Grid.Column="3" Grid.Row="1" Width="25" Height="25" 
+                                        Background="Pink" Click="colorBtn_Click"></Button>
+
+                        <Border Grid.Column="4" Grid.Row="1" BorderThickness="1" BorderBrush="Black"
+                                            Width="28" Height="28"/>
+                        <Button Name="Brown" Grid.Column="4" Grid.Row="1" Width="25" Height="25" 
+                                            Background="Brown" Click="colorBtn_Click"></Button>
+                    </Grid>
+
+                </StackPanel>
+
+            </GroupBox>
+            
+            
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid>
@@ -38,7 +134,7 @@
 
                 </Canvas>
 
-                <Border BorderThickness="1" BorderBrush="Black" Background="Transparent" MouseWheel="DrawingCanvas_MouseWheel"  MouseDown="DrawingCanvas_MouseDown" MouseMove="DrawingCanvas_MouseMove" MouseUp="DrawingCanvas_MouseUp">
+                <Border BorderThickness="1.5" BorderBrush="Black" Background="Transparent" MouseWheel="DrawingCanvas_MouseWheel"  MouseDown="DrawingCanvas_MouseDown" MouseMove="DrawingCanvas_MouseMove" MouseUp="DrawingCanvas_MouseUp">
 
                 </Border>
             </Grid>
