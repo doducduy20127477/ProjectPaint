@@ -9,9 +9,6 @@
 | Nguyễn Thái Hiệp    | 20127496 |     25%     | nthiep20@clc.fitus.edu.vn     |
 | Nguyễn Hồng Tấn     | 20127622 |     25%     | 20127622@student.hcmus.edu.vn |
 
-## Mã nguồn:
-
--   **Drive: https://drive.google.com/drive/folders/1Q8gdB_KXPnCiG0tl2Bl4uSE58JyVaRFV?usp=sharing**
 
 ## Các chức năng đã làm:
 
